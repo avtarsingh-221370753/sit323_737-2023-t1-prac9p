@@ -1,0 +1,29 @@
+docker pull node
+docker pull mongo
+
+# to bulid the my app image
+docker build -t my-user-web-app .
+
+# to create a Persistent Volume 
+kubectl apply -f .\createPersistentVolume.yaml
+
+# to create Persistent Volume Claim
+kubectl apply -f .\createPersistentVolumeClaim.yaml
+
+# to create Storage class
+kubectl apply -f .\createStorageClass.yaml
+
+# to create secret for mongo db creds
+kubectl apply -f .\createSecret.yaml
+
+# to deploy the apps/ create pods
+kubectl apply -f .\createAppDeployment.yaml
+
+# to create services 
+kubectl apply -f .\createAppService.yaml
+
+# to expose my app on o/p ports
+kubectl port-forward service/myapp 3000:80
+
+# to test the exposed app
+curl localhost:3000

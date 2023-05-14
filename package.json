@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongodb": "^5.5.0",
+    "node": "^20.1.0",
+    "winston": "^3.8.2"
+  }
+}
